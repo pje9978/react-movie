@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 function Button({text}){
-    return <button>{text}</button>
+    return <button className="bg-black text-white">{text}</button>
 }
 
 Button.propTypes = {
