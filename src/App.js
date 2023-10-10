@@ -4,30 +4,27 @@ import './index.css'
 import Button from "./Button"
 import { useState ,useEffect, useRef} from "react";
 
-function Hello(){
-  function byFn(){
-    console.log("by:)")
-  }
-  function hiFn(){
-    console.log("hi:)")
-    return byFn;
-  }
-  useEffect(hiFn,[])
-  return <h1>Hello</h1>
-}
-
 function App() {
-  const [showing, setShowing] = useState(false);
+  const [toDo, setTodo]  = useState("");
+  const [toDos, setTodos]  = useState([]);
+  const onChange = (event) => setTodo(event.target.value);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    if(toDo === "") {
+      return;
+    }
 
-  const onClick = () =>setShowing((prev) => !prev)
-    
-  
+    setTodos((currentArray) => [toDo, ...currentArray]);
+    setTodo("");
+  }
+  console.log(toDos)
+  // console.log(toDo)
   return (
     <>
-      <div>
-        {showing ? <Hello/> : null}
-          <button onClick={onClick}>{showing ? "hide" : "show"}</button>
-      </div>
+      <form  onSubmit={onSubmit}>
+        <input value={toDo}  onChange={onChange} type="text" placeholder='write your to do..' />
+        <button>Add to do</button>
+      </form>
     </>
   );
 }
