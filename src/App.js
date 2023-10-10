@@ -5,6 +5,10 @@ import Button from "./Button"
 import { useState ,useEffect, useRef} from "react";
 
 function Hello(){
+  useEffect(() => {
+    console.log("created :)")
+    return () => console.log("destoryed :(");
+  },[])
   return <h1>Hello</h1>
 }
 
