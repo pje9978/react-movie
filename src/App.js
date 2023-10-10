@@ -4,6 +4,9 @@ import './index.css'
 import Button from "./Button"
 import { useState ,useEffect, useRef} from "react";
 
+function Hello(){
+  return <h1>Hello</h1>
+}
 
 function App() {
   const [showing, setShowing] = useState(false);
@@ -14,6 +17,7 @@ function App() {
   return (
     <>
       <div>
+        {showing ? <Hello/> : null}
           <button onClick={onClick}>{showing ? "hide" : "show"}</button>
       </div>
     </>
