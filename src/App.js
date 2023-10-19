@@ -3,7 +3,8 @@ import './App.css';
 import './index.css'
 import Button from "./Button"
 import { useState ,useEffect, useRef} from "react";
-
+import Movie from './Movie';
+ 
 function App() {
   const [loading,setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -20,28 +21,30 @@ function App() {
   },[])
   console.log(movies)
   return (
-    
+     
     <>
       {loading? (
         <h1>Loaing</h1>
       ) : ( 
         <div> 
-          {movies.map(movie => (
-            <div key={movie.id}>
-              <img src={movie.medium_cover_image}></img>
-              <h2 className='text-2xl'>{movie.title}</h2>
-              <p>{movie.summary}</p>
-              <ul className='bg-yellow-200'>
-                {movie.genres.map(g => <li>{g}</li>)}
-                
-              </ul>
-            </div>
-           
+          {movies.map((movie) => (
+              <Movie 
+              key={movie.id}
+              coverImage={movie.medium_cover_image}
+              summary={movie.summary} 
+              title={movie.title} 
+              genres={movie.genres} />
+       
           ))}
         </div>
       )}
     </>
   );
 }
-
+Movie.propTypes = {
+  coverImg: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  summary:  PropTypes.string.isRequired,
+  genres:  PropTypes.arrayOf(PropTypes.string).isRequired,
+}
 export default App;
