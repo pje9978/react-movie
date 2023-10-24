@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/react-study/static/js/main.c70705bb.js",
-    "index.html": "/react-study/index.html",
-    "main.c70705bb.js.map": "/react-study/static/js/main.c70705bb.js.map"
+    "main.js": "/react-movie/static/js/main.c70705bb.js",
+    "index.html": "/react-movie/index.html",
+    "main.c70705bb.js.map": "/react-movie/static/js/main.c70705bb.js.map"
   },
   "entrypoints": [
     "static/js/main.c70705bb.js"
