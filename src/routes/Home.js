@@ -21,17 +21,20 @@ function Home() {
       {loading ? (
         <h1>Loading...</h1>
       ) : (
-        <div>
-          {movies.map((movie) => (
-            <Movie
-              id={movie.id}
-              key={movie.id}
-              coverImg={movie.medium_cover_image}
-              title={movie.title}
-              summary={movie.summary}
-              genres={movie.genres}
-            />
-          ))}
+        <div class="container mx-auto overflow-hidden">
+          <h2 className="text-3xl text-center my-12 font-medium">Movies..</h2>
+          <div className="flex flex-wrap">
+            {movies.map((movie) => (
+              <Movie
+                id={movie.id}
+                key={movie.id}
+                coverImg={movie.medium_cover_image}
+                title={movie.title}
+                // summary={movie.summary}
+                // genres={movie.genres}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>
