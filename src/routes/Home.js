@@ -16,12 +16,13 @@ function Home() {
   useEffect(() => {
     getMovies();
   }, []);
+
   return (
     <div>
       {loading ? (
         <h1>Loading...</h1>
       ) : (
-        <div class="container mx-auto overflow-hidden">
+        <div className="container mx-auto overflow-hidden">
           <h2 className="text-3xl text-center my-12 font-medium">Movies..</h2>
           <div className="flex flex-wrap">
             {movies.map((movie) => (
@@ -30,6 +31,7 @@ function Home() {
                 key={movie.id}
                 coverImg={movie.medium_cover_image}
                 title={movie.title}
+                showImage={true}
                 // summary={movie.summary}
                 // genres={movie.genres}
               />
