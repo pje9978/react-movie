@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@700&family=Vina+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,9 +21,30 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
+}
+h1{font-family: 'Big Shoulders Stencil Text', sans-serif;
+}
+h2{
+  font-family: 'Big Shoulders Stencil Text', sans-serif; 
+  font-weight: 400;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.project-card{
+  @apply  
+    flex flex-col bg-slate-700 rounded-xl
+    transition duration-300 transform border border-gray-300/50 
+    text-white/60
+    sm:hover:scale-105 
+    hover:shadow-lg
+    hover:z-10
+    /* dark:border-gray-200/50 */
+    /* dark:hover:shadow-gray-400/40 */
+    /* hover:text-white/100 */
+
 }
