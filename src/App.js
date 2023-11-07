@@ -1,21 +1,43 @@
 // import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 import './index.css'
-import Button from "./Button"
-import { useState ,useEffect, useRef} from "react";
 
 
 function App() {
-  const [showing, setShowing] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [movies,setMoves] = useState([]);
+  const getMovies = async() => {
+    const json = await (await fetch(
+      `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`
+    )).json();
+    setMoves(json.data.movies)
+    setLoading(false);
+  }
+  useEffect(()=>{
+    getMovies();
+  },[])
 
-  const onClick = () =>setShowing((prev) => !prev)
-    
-  
+  console.log(movies)
   return (
     <>
-      <div>
-          <button onClick={onClick}>{showing ? "hide" : "show"}</button>
-      </div>
+      {loading ? (
+        <h1>loading..</h1>
+        ) : (
+        <div>
+            {movies.map(movie => (
+              <div key={movie.id}> 
+                  <img src={movie.medium_cover_image}></img>
+                  <h2>{movie.title}</h2>
+                  <p>{movie.summary}</p>
+                  <ul>
+                    {movie.genres.map(g => <li>{g}</li>)}
+                  </ul>
+
+              </div>  
+            ))}
+        </div>
+      )}
     </>
   );
 }
